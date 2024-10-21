@@ -80,7 +80,7 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: pp* cp36-* cp37-* cp38-*
 
       - name: Build accelerate wheels (master)
         uses: pypa/cibuildwheel@v2.21.3
@@ -90,7 +90,7 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: pp* cp36-* cp37-* cp38-*
 
       - name: Build root wheels (develop)
         uses: pypa/cibuildwheel@v2.21.3
@@ -100,7 +100,7 @@ jobs:
           output-dir: "./dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: pp* cp36-* cp37-* cp38-*
 
       - name: Build root wheels (master)
         uses: pypa/cibuildwheel@v2.21.3
@@ -110,7 +110,7 @@ jobs:
           output-dir: "./dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
+          CIBW_SKIP: pp* cp36-* cp37-* cp38-*
 
       - name: Save root wheels
         uses: actions/upload-artifact@v4
