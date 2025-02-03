@@ -52,7 +52,7 @@ jobs:
 
   wheels_windows:
     name: Build architecture-specific wheels on windows ${{matrix.arch}}
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     strategy:
       matrix:
         arch: [AMD64, x86, ARM64]
@@ -69,7 +69,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -113,7 +113,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -164,7 +164,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -218,7 +218,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -266,7 +266,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -316,7 +316,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/develop' }}
+        # if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
