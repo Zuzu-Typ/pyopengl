@@ -189,7 +189,7 @@ jobs:
           path: accelerate/dist/*.whl
 
 
-  wheels_manylinux-arm:
+  wheels_manylinux_arm:
     name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
 
     runs-on: ubuntu-24.04-arm
@@ -345,7 +345,12 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
     needs:
-      - wheels
+      - wheels_windows
+      - wheels_mac
+      - wheels_manylinux_x86
+      - wheels_manylinux_arm
+      - wheels_musllinux_x86
+      - wheels_musllinux_arm
       - tarballs
     # TODO: should be choosing the repo URL based on master/develop
     permissions:
