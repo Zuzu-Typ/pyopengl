@@ -54,7 +54,7 @@ jobs:
           path: accelerate/dist/*
 
   wheels_windows:
-    name: Build architecture-specific wheels on windows ${{matrix.arch}}
+    name: Wheels on windows ${{matrix.arch}}
     runs-on: windows-latest
     strategy:
       matrix:
@@ -97,7 +97,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_mac:
-    name: Build architecture-specific wheels on MacOS ${{ matrix.arch }}
+    name: Wheels on MacOS ${{ matrix.arch }}
     runs-on: macos-latest
     strategy:
       matrix:
@@ -141,7 +141,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_manylinux_x86:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -190,7 +190,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_manylinux_arm:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
 
     runs-on: ubuntu-24.04-arm
     strategy:
@@ -241,7 +241,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_manylinux_arm_ex:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
 
     runs-on: ubuntu-latest
     strategy:
@@ -253,7 +253,7 @@ jobs:
       CIBW_MANYLINUX_AARCH64_IMAGE: ${{ matrix.distro }}
       CIBW_MANYLINUX_S390X_IMAGE: ${{ matrix.distro }}
       CIBW_MANYLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
-      CIBW_BUILD: cp3*-manylinux*
+      CIBW_BUILD: cp31*-manylinux*
       CIBW_ARCHS: ${{matrix.arch}}
 
     steps:
@@ -292,7 +292,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_musllinux_x86:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -338,7 +338,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_musllinux_arm:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-24.04-arm
     strategy:
       matrix:
@@ -384,7 +384,7 @@ jobs:
           path: accelerate/dist/*.whl
 
   wheels_musllinux_arm_ex:
-    name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -393,7 +393,7 @@ jobs:
     env:
       CIBW_MUSLLINUX_S390X_IMAGE: ${{ matrix.distro }}
       CIBW_MUSLLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
-      CIBW_BUILD: cp3*-musllinux*
+      CIBW_BUILD: cp31*-musllinux*
       CIBW_ARCHS: ${{matrix.arch}}
 
     steps:
