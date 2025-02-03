@@ -1,7 +1,6 @@
-name: Build PyOpenGL-accelerate wheels with manylinux
+name: Build PyOpenGL-accelerate wheels on different architectures
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - "master"
@@ -72,7 +71,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -114,7 +113,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -163,7 +162,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -214,7 +213,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -235,6 +234,8 @@ jobs:
         with:
           name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
           path: accelerate/dist/*.whl
+
+  # Broken because NumPy does not have wheels for these architectures:
 
   # wheels_manylinux_arm_ex:
   #   name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
@@ -265,7 +266,7 @@ jobs:
 
   #     - name: Build wheels (develop)
   #       uses: pypa/cibuildwheel@v2.22.0
-  #       # if: ${{ github.ref == 'refs/heads/develop' }}
+  #       if: ${{ github.ref == 'refs/heads/develop' }}
   #       with:
   #         package-dir: "./accelerate"
   #         output-dir: "./accelerate/dist"
@@ -311,7 +312,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -357,7 +358,7 @@ jobs:
 
       - name: Build wheels (develop)
         uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         with:
           package-dir: "./accelerate"
           output-dir: "./accelerate/dist"
@@ -378,6 +379,8 @@ jobs:
         with:
           name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
           path: accelerate/dist/*.whl
+
+  # Broken because NumPy does not have wheels for these architectures:
 
   # wheels_musllinux_arm_ex:
   #   name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
@@ -405,7 +408,7 @@ jobs:
 
   #     - name: Build wheels (develop)
   #       uses: pypa/cibuildwheel@v2.22.0
-  #       # if: ${{ github.ref == 'refs/heads/develop' }}
+  #       if: ${{ github.ref == 'refs/heads/develop' }}
   #       with:
   #         package-dir: "./accelerate"
   #         output-dir: "./accelerate/dist"
