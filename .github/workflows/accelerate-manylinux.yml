@@ -6,6 +6,9 @@ on:
     branches:
       - "master"
 
+env:
+  CIBW_SKIP: cp36-* cp37-* cp38-* pp*
+
 jobs:
   tarballs:
     name: Build source tarballs and root wheels
@@ -170,7 +173,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -180,7 +182,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
@@ -223,7 +224,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -233,7 +233,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
@@ -276,7 +275,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -286,7 +284,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
@@ -324,7 +321,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -334,7 +330,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
@@ -372,7 +367,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -382,7 +376,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
@@ -422,7 +415,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Build wheels (master)
         uses: pypa/cibuildwheel@v2.22.0
@@ -432,7 +424,6 @@ jobs:
           output-dir: "./accelerate/dist"
         env:
           BUILD_EXTENSION: yes
-          CIBW_SKIP: "pp*"
 
       - name: Save wheels
         uses: actions/upload-artifact@v4
