@@ -240,56 +240,56 @@ jobs:
           name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
           path: accelerate/dist/*.whl
 
-  wheels_manylinux_arm_ex:
-    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+  # wheels_manylinux_arm_ex:
+  #   name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
 
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        distro: [manylinux2014, manylinux_2_28]
-        arch: [ppc64le, s390x]
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       distro: [manylinux2014, manylinux_2_28]
+  #       arch: [ppc64le, s390x]
 
-    env:
-      CIBW_MANYLINUX_AARCH64_IMAGE: ${{ matrix.distro }}
-      CIBW_MANYLINUX_S390X_IMAGE: ${{ matrix.distro }}
-      CIBW_MANYLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
-      CIBW_BUILD: cp31*-manylinux*
-      CIBW_ARCHS: ${{matrix.arch}}
+  #   env:
+  #     CIBW_MANYLINUX_AARCH64_IMAGE: ${{ matrix.distro }}
+  #     CIBW_MANYLINUX_S390X_IMAGE: ${{ matrix.distro }}
+  #     CIBW_MANYLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
+  #     CIBW_BUILD: cp3*-manylinux*
+  #     CIBW_ARCHS: ${{matrix.arch}}
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
+  #   steps:
+  #     - name: Check out repository
+  #       uses: actions/checkout@v4
+  #     - name: Install Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: 3.x
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v3
 
-      - name: Build wheels (develop)
-        uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
-        with:
-          package-dir: "./accelerate"
-          output-dir: "./accelerate/dist"
-        env:
-          BUILD_EXTENSION: yes
+  #     - name: Build wheels (develop)
+  #       uses: pypa/cibuildwheel@v2.22.0
+  #       # if: ${{ github.ref == 'refs/heads/develop' }}
+  #       with:
+  #         package-dir: "./accelerate"
+  #         output-dir: "./accelerate/dist"
+  #       env:
+  #         BUILD_EXTENSION: yes
 
-      - name: Build wheels (master)
-        uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/master' }}
-        with:
-          package-dir: "./accelerate"
-          output-dir: "./accelerate/dist"
-        env:
-          BUILD_EXTENSION: yes
+  #     - name: Build wheels (master)
+  #       uses: pypa/cibuildwheel@v2.22.0
+  #       if: ${{ github.ref == 'refs/heads/master' }}
+  #       with:
+  #         package-dir: "./accelerate"
+  #         output-dir: "./accelerate/dist"
+  #       env:
+  #         BUILD_EXTENSION: yes
 
-      - name: Save wheels
-        uses: actions/upload-artifact@v4
-        with:
-          name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
-          path: accelerate/dist/*.whl
+  #     - name: Save wheels
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
+  #         path: accelerate/dist/*.whl
 
   wheels_musllinux_x86:
     name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
@@ -383,53 +383,53 @@ jobs:
           name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
           path: accelerate/dist/*.whl
 
-  wheels_musllinux_arm_ex:
-    name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        distro: [musllinux_1_2]
-        arch: [s390x, ppc64le]
-    env:
-      CIBW_MUSLLINUX_S390X_IMAGE: ${{ matrix.distro }}
-      CIBW_MUSLLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
-      CIBW_BUILD: cp31*-musllinux*
-      CIBW_ARCHS: ${{matrix.arch}}
+  # wheels_musllinux_arm_ex:
+  #   name: Wheels on ${{ matrix.distro }} ${{ matrix.arch }}
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       distro: [musllinux_1_2]
+  #       arch: [s390x, ppc64le]
+  #   env:
+  #     CIBW_MUSLLINUX_S390X_IMAGE: ${{ matrix.distro }}
+  #     CIBW_MUSLLINUX_PPC64LE_IMAGE: ${{ matrix.distro }}
+  #     CIBW_BUILD: cp3*-musllinux*
+  #     CIBW_ARCHS: ${{matrix.arch}}
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
+  #   steps:
+  #     - name: Check out repository
+  #       uses: actions/checkout@v4
+  #     - name: Install Python
+  #       uses: actions/setup-python@v5
+  #       with:
+  #         python-version: 3.x
           
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+  #     - name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v3
 
-      - name: Build wheels (develop)
-        uses: pypa/cibuildwheel@v2.22.0
-        # if: ${{ github.ref == 'refs/heads/develop' }}
-        with:
-          package-dir: "./accelerate"
-          output-dir: "./accelerate/dist"
-        env:
-          BUILD_EXTENSION: yes
+  #     - name: Build wheels (develop)
+  #       uses: pypa/cibuildwheel@v2.22.0
+  #       # if: ${{ github.ref == 'refs/heads/develop' }}
+  #       with:
+  #         package-dir: "./accelerate"
+  #         output-dir: "./accelerate/dist"
+  #       env:
+  #         BUILD_EXTENSION: yes
 
-      - name: Build wheels (master)
-        uses: pypa/cibuildwheel@v2.22.0
-        if: ${{ github.ref == 'refs/heads/master' }}
-        with:
-          package-dir: "./accelerate"
-          output-dir: "./accelerate/dist"
-        env:
-          BUILD_EXTENSION: yes
+  #     - name: Build wheels (master)
+  #       uses: pypa/cibuildwheel@v2.22.0
+  #       if: ${{ github.ref == 'refs/heads/master' }}
+  #       with:
+  #         package-dir: "./accelerate"
+  #         output-dir: "./accelerate/dist"
+  #       env:
+  #         BUILD_EXTENSION: yes
 
-      - name: Save wheels
-        uses: actions/upload-artifact@v4
-        with:
-          name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
-          path: accelerate/dist/*.whl
+  #     - name: Save wheels
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: accel-binary-${{ matrix.distro }}-${{ matrix.arch }}
+  #         path: accelerate/dist/*.whl
 
   pypi-publish-accel:
     name: Upload Accelerate ${{matrix.repo}}
@@ -440,10 +440,10 @@ jobs:
       - wheels_mac
       - wheels_manylinux_x86
       - wheels_manylinux_arm
-      - wheels_manylinux_arm_ex
+      # - wheels_manylinux_arm_ex
       - wheels_musllinux_x86
       - wheels_musllinux_arm
-      - wheels_musllinux_arm_ex
+      # - wheels_musllinux_arm_ex
       - tarballs
     # TODO: should be choosing the repo URL based on master/develop
     permissions:
@@ -482,10 +482,10 @@ jobs:
       - wheels_mac
       - wheels_manylinux_x86
       - wheels_manylinux_arm
-      - wheels_manylinux_arm_ex
+      # - wheels_manylinux_arm_ex
       - wheels_musllinux_x86
       - wheels_musllinux_arm
-      - wheels_musllinux_arm_ex
+      # - wheels_musllinux_arm_ex
       - tarballs
     # TODO: should be choosing the repo URL based on master/develop
     permissions:
