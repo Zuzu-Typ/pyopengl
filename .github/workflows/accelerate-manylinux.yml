@@ -245,7 +245,7 @@ jobs:
   wheels_musllinux_x86:
     name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-latest
-     strategy:
+    strategy:
       matrix:
         distro: [musllinux_1_2]
         arch: [x86_64, i686]
@@ -293,7 +293,7 @@ jobs:
   wheels_musllinux_arm:
     name: Build architecture-specific wheels on ${{ matrix.distro }} ${{ matrix.arch }}
     runs-on: ubuntu-24.04-arm
-     strategy:
+    strategy:
       matrix:
         distro: [musllinux_1_2]
         arch: [aarch64, s390x, ppc64le, armv7l]
